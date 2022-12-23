@@ -36,7 +36,7 @@ function start(client) {
             });
         }
 
-        const number = req.query['number'];
+        const number = "977"+req.query['number']+"@c.us";
         const message = req.query['message'];
 
         //client.sendText(number, message);

@@ -1,6 +1,0 @@
-2022/12/23-21:56:40.766 ff03 Creating DB /Applications/MAMP/htdocs/whatsapp-test/tokens/jadabot/Default/IndexedDB/https_web.whatsapp.com_0.indexeddb.leveldb since it was missing.
-2022/12/23-21:56:40.783 ff03 Reusing MANIFEST /Applications/MAMP/htdocs/whatsapp-test/tokens/jadabot/Default/IndexedDB/https_web.whatsapp.com_0.indexeddb.leveldb/MANIFEST-000001
-2022/12/23-21:56:40.817 6c07 Level-0 table #5: started
-2022/12/23-21:56:40.826 6c07 Level-0 table #5: 6987 bytes OK
-2022/12/23-21:56:40.834 6c07 Delete type=0 #3
-2022/12/23-21:56:40.834 6c07 Manual compaction at level-0 from '\x00\x01\x00\x00\x00' @ 72057594037927935 : 1 .. '\x00\x02\x00\x00\x00' @ 0 : 0; will stop at (end)
