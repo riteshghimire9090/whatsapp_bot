@@ -12,7 +12,8 @@ app.use(express.urlencoded({ extended: true }));
 venom
     .create({
         headless: true,
-        session: 'jadabot'
+        session: 'jadabot',
+        browserArgs: ['--no-sandbox']
     })
     .then((client) => start(client))
     .catch((erro) => {
