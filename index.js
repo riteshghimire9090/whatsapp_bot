@@ -21,8 +21,8 @@ venom
     });
 
 function start(client) {
-
-    app.get('/send-message', async (req, res) => {
+    function sharedHandler(req, res)
+    {
         const errors = validationResult(req).formatWith(({
                                                              msg
                                                          }) => {
@@ -38,8 +38,9 @@ function start(client) {
 
         const number = "977"+req.query['number']+"@c.us";
         const message = req.query['message'];
-
+        console.log('To' + number + "with:"+message);
         //client.sendText(number, message);
+
         client.sendText(number, message).then(response => {
             res.status(200).json({
                 status: true,
@@ -54,6 +55,19 @@ function start(client) {
             });
         });
         //rer.send('Mensagem enviada');
+    }
+
+    app.get('/send-message', sharedHandler);
+
+    app.get("/exit",async (req, res) => {
+        res.send('closing..');
+        app.close();
+        server.close();
+        const httpTerminator = createHttpTerminator({
+            server,
+        });
+
+        await httpTerminator.terminate();
     })
 }
 
