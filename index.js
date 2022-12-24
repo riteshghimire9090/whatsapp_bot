@@ -35,7 +35,7 @@ function start(client) {
 
         const number = "977"+req.body["number"]+"@c.us";
         const message = req.body["message"];
-        console.log('To' + number + "with:"+message);
+        console.log('To' + number + "with:"+message.toString());
         //client.sendText(number, message);
 
         client.sendText(number, message).then(response => {
