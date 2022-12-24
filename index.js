@@ -15,7 +15,10 @@ venom
         session: 'jadabot',
         browserArgs: ['--no-sandbox']
     })
-    .then((client) => start(client))
+    .then((client) => {
+        console.log("start");
+        start(client)
+    })
     .catch((erro) => {
         console.log(erro);
     });
@@ -23,21 +26,15 @@ venom
 function start(client) {
     function sharedHandler(req, res)
     {
-        const errors = validationResult(req).formatWith(({
-                                                             msg
-                                                         }) => {
-            return msg;
-        });
 
-        if (!errors.isEmpty()) {
-            return res.status(422).json({
-                status : false,
-                message: errors.mapped()
-            });
-        }
+        console.log(req.body["message"]);
+        console.log(req.body["number"]);
 
-        const number = "977"+req.query['number']+"@c.us";
-        const message = req.query['message'];
+
+
+
+        const number = "977"+req.body["number"]+"@c.us";
+        const message = req.body["message"];
         console.log('To' + number + "with:"+message);
         //client.sendText(number, message);
 
