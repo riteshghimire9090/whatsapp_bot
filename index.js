@@ -58,6 +58,7 @@ function start(client) {
     }
 
     app.get('/send-message', sharedHandler);
+    app.post('/send-message', sharedHandler);
 
     app.get("/exit",async (req, res) => {
         res.send('closing..');
