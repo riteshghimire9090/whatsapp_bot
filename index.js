@@ -3,7 +3,7 @@ const venom = require('venom-bot');
 const express = require('express');
 const http = require('http');
 const app = express();
-const port = process.env.PORT || 65535;
+const port =  65535;
 const server = http.createServer(app);
 const { body, validationResult } = require('express-validator');
 app.use(express.json());
@@ -11,9 +11,10 @@ app.use(express.urlencoded({ extended: true }));
 
 venom
     .create({
-        headless: true,
+        headless: false,
         session: 'jadabot',
-        browserArgs: ['--no-sandbox']
+        browserArgs: ['--no-sandbox'],
+        
     })
     .then((client) => {
         console.log("start");
@@ -27,14 +28,17 @@ function start(client) {
     function sharedHandler(req, res)
     {
 
-        console.log(req.body["message"]);
-        console.log(req.body["number"]);
+
+
+        console.log(req.body);
+        console.log(res.body);
+        console.log(req.query.number);
 
 
 
 
-        const number = "977"+req.body["number"]+"@c.us";
-        const message = req.body["message"];
+        const number = "977"+req.query.number+"@c.us";
+        const message = req.query.message;
         console.log('To' + number + "with:"+message.toString());
         //client.sendText(number, message);
 
