@@ -68,23 +68,32 @@ function start(client) {
 
    function  s (req, res) {
         const { number, message } = req.body;
+        console.log(number);
+        console.log(message);
     
         if (!number || !message) {
+
+            
             res.status(200).json({
                 status: false,
                 message: 'Both "number" and "message" are required in the request body.',
             });
+
+
+    console.log('Both "number" and "message" are required in the request body.');
         } else {
             const formattedNumber = "977" + number + "@c.us";
-    
+            console.log(formattedNumber);
             client.sendText(formattedNumber, message).then(response => {
+                console.log(formattedNumber);
                 res.status(200).json({
                     status: true,
                     message: message,
                     response: response
                 });
+                console.log("send");
             }).catch(err => {
-                        console.log(req.query.number);
+                        console.log(err.text);
     
                 res.status(500).json({
                     status: false,
